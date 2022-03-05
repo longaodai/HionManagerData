@@ -35,3 +35,11 @@ if (!defined('DATA_NOT_USE')) {
 if (!defined('LENGTH_RANDOM')) {
     define('LENGTH_RANDOM', 10);
 }
+
+if (!defined('PAGINATE_PAGE_DEFAULT')) {
+    define('PAGINATE_PAGE_DEFAULT', 20);
+}
+
+if (!defined('PAGE_DEFAULT')) {
+    define('PAGE_DEFAULT', 1);
+}

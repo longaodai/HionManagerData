@@ -21,10 +21,6 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
         <!-- third party css -->
-        <link href="{{asset('assets\libs\datatables\dataTables.bootstrap4.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{asset('assets\libs\datatables\buttons.bootstrap4.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{asset('assets\libs\datatables\responsive.bootstrap4.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{asset('assets\libs\datatables\select.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <!-- App css -->
         <link href="{{asset('assets\css\bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet">
         <link href="{{asset('assets\css\icons.min.css')}}" rel="stylesheet" type="text/css">
@@ -37,33 +33,13 @@
 
         <!-- Begin page -->
         <div id="wrapper">
-
-            
-            <!-- Topbar Start -->
-            <div class="navbar-custom">
-                <!-- LOGO -->
-            </div>
             <!-- end Topbar --> 
             <!-- ========== Left Sidebar Start ========== -->
             <div class="left-side-menu">
-                    {{-- <div class="user-box">
-                        <div class="float-left">
-                            <img src="{{asset('assets\images\users\avatar-1.jpg')}}" alt="" class="avatar-md rounded-circle">
-                        </div>
-                        <div class="user-info">
-                            <a href="#">Stanley Jones</a>
-                            <p class="text-muted m-0">Administrator</p>
-                        </div>
-                    </div> --}}
-    
-            <!--- Sidemenu -->
-            @include('layout.nav')
-            <!-- End Sidebar -->
-    
-            <div class="clearfix"></div>
-
-    
-                </div>
+                <!--- Sidemenu -->
+                @include('layout.nav')
+                <!-- End Sidebar -->
+            </div>
             <!-- Left Sidebar End -->
 
             <!-- ============================================================== -->
@@ -71,29 +47,14 @@
             <!-- ============================================================== -->
 
             <div class="content-page">
-                <div class="content">
-
+                <div class="content mt-5">
                     <!-- Start container-fluid -->
                     <div class="container-fluid">
-
                         <!-- start  -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div>
-                                    <h4 class="header-title mb-3"></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
-
                         @yield('content')
                         <!-- end row -->
-
                     </div>
                     <!-- end container-fluid -->
-
-                    
-
                     <!-- Footer Start -->
                     <footer class="footer">
                         <div class="container-fluid">
@@ -114,32 +75,8 @@
 
         </div>
         <!-- END wrapper -->
-        
         <!-- Vendor js -->
         <script src="{{asset('assets\js\vendor.min.js')}}"></script>
-
-        <!-- Required datatable js -->
-        <script src="{{asset('assets\libs\datatables\jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('assets\libs\datatables\dataTables.bootstrap4.min.js')}}"></script>
-
-        <!-- Buttons examples -->
-        <script src="{{asset('assets\libs\datatables\dataTables.buttons.min.js')}}"></script>
-        <script src="{{asset('assets\libs\datatables\buttons.bootstrap4.min.js')}}"></script>
-        <script src="{{asset('assets\libs\datatables\dataTables.keyTable.min.js')}}"></script>
-        <script src="{{asset('assets\libs\datatables\dataTables.select.min.js')}}"></script>
-        <script src="{{asset('assets\libs\jszip\jszip.min.js')}}"></script>
-        <script src="{{asset('assets\libs\pdfmake\pdfmake.min.js')}}"></script>
-        <script src="{{asset('assets\libs\pdfmake\vfs_fonts.js')}}"></script>
-        <script src="{{asset('assets\libs\datatables\buttons.html5.min.js')}}"></script>
-        <script src="{{asset('assets\libs\datatables\buttons.print.min.js')}}"></script>
-
-        <!-- Responsive examples -->
-        <script src="{{asset('assets\libs\datatables\dataTables.responsive.min.js')}}"></script>
-        <script src="{{asset('assets\libs\datatables\responsive.bootstrap4.min.js')}}"></script>
-
-        <!-- Datatables init -->
-        <script src="{{asset('assets\js\pages\datatables.init.js')}}"></script>
-
         <!-- App js -->
         <script src="{{asset('assets\js\app.min.js')}}"></script>
         @yield('script')
