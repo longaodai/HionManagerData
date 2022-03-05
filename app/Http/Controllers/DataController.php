@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\DataExport;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Imports\DataSaleImport;
+use App\Services\Category\CategoryServiceInterface;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Services\Data\DataServiceInterface;
 use App\Services\DataImport\DataImportServiceInterface;
@@ -22,10 +24,31 @@ class DataController extends Controller
 
     public function index(Request $request)
     {
-        $data = $this->dataService->getList(collect([
+        $params = [
             'category' => $request->get('category'),
-        ]));
+            'name_customer' => $request->get('customer_name'),
+            'address' => $request->get('address'),
+            'product' => $request->get('product_name'),
+            'store' => $request->get('store_name'),
+        ];
+        $data = $this->dataService->getList(collect($params));
         
+        if (! empty($request->get('download'))) {
+            $params = array_merge($params, ['export_data' => true]);
+            $dataExport = $this->dataService->all(collect($params));
+            $timeExport = Carbon::now()->toDateString();
+            $categoryName = 'Data';
+            
+            if (! empty($request->get('category'))) {
+                $categoryService = app(CategoryServiceInterface::class);
+                $categoryName = $categoryService->find($request->get('category'))->name;
+            }
+
+            $fileName =  $categoryName . ' ' . $timeExport;
+            
+            return Excel::download(new DataExport($dataExport),  $fileName .'.xlsx');
+        }
+
         return view('pages.data', [
             'data' => $data,
         ]);

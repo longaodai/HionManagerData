@@ -1,13 +1,10 @@
 <div id="sidebar-menu">
-    
     <ul class="metismenu" id="side-menu">
-        <hr>
         <li>
             <a href="{{route('admin.list')}}">
                 <span class="text-center">Xin chào: {{auth()->user()->name ?? "Admin"}}</span>
             </a>
         </li>
-        <hr>
         <li>
             <a href="javascript: void(0);">
                 <i class="fas fa-list"></i>

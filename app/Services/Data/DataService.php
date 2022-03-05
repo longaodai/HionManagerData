@@ -98,4 +98,9 @@ class DataService extends BaseService implements DataServiceInterface
     {
         return $this->repository->updateInHidden($data);
     }
+
+    public function all($data = null)
+    {
+        return $this->repository->all($data);
+    }
 }

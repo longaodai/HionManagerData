@@ -10,4 +10,5 @@ interface DataServiceInterface
 
     public function addCategoryDataAll($data = null);
 
+    public function all($data = null);
 }

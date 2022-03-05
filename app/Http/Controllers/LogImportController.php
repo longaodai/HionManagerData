@@ -25,7 +25,7 @@ class LogImportController extends Controller
     public function update($code, $id)
     {
         $dataService = app(DataServiceInterface::class);
-        $dataIds = $dataService->getList(collect(['file_import' => $code]))->pluck('id')->toArray();
+        $dataIds = $dataService->all(collect(['file_import' => $code]))->pluck('id')->toArray();
         $dataService->updateIn($dataIds);
         $this->logImportService->update([
             'status' => DATA_USE
@@ -37,7 +37,7 @@ class LogImportController extends Controller
     public function hidden($code, $id)
     {
         $dataService = app(DataServiceInterface::class);
-        $dataIds = $dataService->getList(collect(['file_import' => $code]))->pluck('id')->toArray();
+        $dataIds = $dataService->all(collect(['file_import' => $code]))->pluck('id')->toArray();
         $dataService->updateInHidden($dataIds);
         $this->logImportService->update([
             'status' => DATA_NOT_USE
